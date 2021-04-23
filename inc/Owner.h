@@ -1,7 +1,7 @@
 #ifndef OWNER_H
 #define OWNER_H
 
-#include "player.h"
+#include "Player.h"
 
 
 class Owner : public Player{
@@ -23,8 +23,10 @@ class Owner : public Player{
 
 	public:
 
-		//Constructor
-		Owner(const float& AwardAmountIn, const float& ActualCostIn, const float& BudgetCostIn, const float& EstDollarsIn): Player(TypeIn, MembersIn, CampIDIn, CampNameIn, ChallIDIn, ChallTypeIn, CoordinatorIn, WeightAcceptedIn, VolumeIn, EnergyIn, SoundsVolumeIn, YearsIn, SurfaceTempIn, PreprocessesIn) AwardAmountIn, ActualCostIn, BudgetCostIn, EstDollarsIn {}
+		//Constructors
+		Owner() : Player(), AwardAmount(), ActualCost(), BudgetCost(), EstDollars() : {}
+
+		Owner(const float& AwardAmountIn, const float& ActualCostIn, const float& BudgetCostIn, const float& EstDollarsIn): Player(TypeIn, MembersIn, CampIDIn, CampNameIn, ChallIDIn, ChallTypeIn, CoordinatorIn, WeightAcceptedIn, VolumeIn, EnergyIn, SoundsVolumeIn, YearsIn, SurfaceTempIn, PreprocessesIn) AwardAmount(AwardAmountIn), ActualCost(ActualCostIn), BudgetCost(BudgetCostIn), EstDollars(EstDollarsIn) {}
 
 		//Destructor
 		~Owner(){}
