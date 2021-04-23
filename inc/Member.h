@@ -2,6 +2,7 @@
 #define MEMBER_H
 
 #include "Player.h"
+#define ENDL std::endl
 
 class Member : public  Player{
 
@@ -19,51 +20,54 @@ class Member : public  Player{
 
 	Member(const float& prizeMoneyIn, const int& rankIn, const bool& winnerIn, const STRING& TypeIn, const STRING& MembersIn, const STRING& campIDIn, const STRING& CampNameIn, const STRING& ChallIDIn, const STRING& ChallTypeIn, const STRING& CoordinatorIn, const float& WeightAcceptedIn, const float& VolumeIn, const double& EnergyIn, const float& SoundsVolumeIn, const float& YearsIn, const float& SurfaceTempIn, const bool& PreprocessesIn) : Player(TypeIn, MembersIn, CampIDIn, CampNameIn, ChallIDIn, ChallTypeIn, CoordinatorIn, WeightAcceptedIn, VolumeIn, EnergyIn, SoundsVolumeIn, YearsIn, SurfaceTempIn, PreprocessesIn), PrizeMoney(prizeMoneyIn), rank(rankIn), winner( winnerIn ) {}
 
+	// destructor
+    ~Member() {}
 
-    
-	const float get_PrizeMoney () {
+	float get_PrizeMoney () const{
 		return PrizeMoney;
 	}
 
-	float set_PrizeMoney ( float amount ) {
+	float set_PrizeMoney ( const float& amount ) {
 		PrizeMoney = amount;
 	}
 
-	const int get_rank () {
+	int get_rank () const {
 		return rank;
 	}
 
-	int set_rank ( int rank ) {
+	int set_rank ( const int& ranking ) {
 		rank = ranking;
 	}
-	const bool get_winner_status () {
+
+	bool get_winner_status () const {
 		return winner;
 	}
 
-	int set_winner ( bool status ) {
+	int set_winner ( const bool& status ) {
 		winner = status;
 	}
 
-	friend std::ostream& operator<<( std::ostream& output ){
+	friend std::ostream& operator<<( std::ostream& output, const Member& memberIn){
 		
-		output<<ENDL<<ENDL<<"Type: " << this->Type<<ENDL;
-		output<<"Members: " << this->Members<<ENDL;
-		output<<"Camp ID: " << this->CampID<<ENDL;
-		output<<"Camp Name: " << this->CampName<<ENDL;
-		output<<"Challenge ID: " << this->ChallID<<ENDL;
-		output<<"Challenge Type: " << this->ChallType<<ENDL;
-		output<<"Coordinator: " << this->Coordinator<<ENDL;
-		output<<"Weight Accepted: " << this->WeightAccepted<<ENDL;
-		output<<"Volume: " << this->Volume<<ENDL;
-		output<<"Energy: " << this->Energy<<ENDL;
-		output<<"Sounds Volume: " << this->CoundsVolume<<ENDL;
-		output<<"Years: " << this->Years<<ENDL;
-		output<<"Surface Temp: " << this->SurfaceTemp<<ENDL;
-		output<<"Preprocesses: " << this->Preprocesses<<ENDL;
-		output<<"PrizeMoney: " << PrizeMoney<<ENDL;
-		output<<"Rank: " << rank<<ENDL;
+		output<<ENDL<<ENDL<<"Type: " << memberIn.Type<<ENDL;
+		output<<"Members: " << memberIn.Members<<ENDL;
+		output<<"Camp ID: " << memberIn.CampID<<ENDL;
+		output<<"Camp Name: " << memberIn.CampName<<ENDL;
+		output<<"Challenge ID: " << memberIn.ChallID<<ENDL;
+		output<<"Challenge Type: " << memberIn.ChallType<<ENDL;
+		output<<"Coordinator: " << memberIn.Coordinator<<ENDL;
+		output<<"Weight Accepted: " << memberIn.WeightAccepted<<ENDL;
+		output<<"Volume: " << memberIn.Volume<<ENDL;
+		output<<"Energy: " << memberIn.Energy<<ENDL;
+		output<<"Sounds Volume: " << memberIn.CoundsVolume<<ENDL;
+		output<<"Years: " << memberIn.Years<<ENDL;
+		output<<"Surface Temp: " << memberIn.SurfaceTemp<<ENDL;
+		output<<"Preprocesses: " << memberIn.Preprocesses<<ENDL;
+		output<<"PrizeMoney: " << memberIn.PrizeMoney<<ENDL;
+		output<<"Rank: " << memberIn.rank<<ENDL;
 		if( winner ) output<<"Winner!"<<ENDL<<ENDL;
-
+		
+		return output;
 };
 
 #endif
