@@ -10,19 +10,24 @@ PP := g++
 
 # CXXFLAGS are production quality flags
 FLAGS := -O2 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror
-CXXFlags := -m64 -std=c++11 -Weffc++ $(FLAGS)
+CXXFLAGS := -m64 -std=c++11 -Weffc++ $(FLAGS)
 
 # Directories
-INC := inc
-SRC := src
-EXE := exe
-OBJ := obj
+INC  := inc
+SRC  := src
+EXE  := exe
+OBJ  := obj
+TEST := test
 
-# Classtest script
+# file groups
+CLASSES := $(INC)/Player.h $(INC)/Member.h $(INC)/Owner.h
 
+# testclass script
+testclass: $(TEST)/testclass.cpp $(CLASSES)
+	$(PP) $(CXXFLAGS) -o $(EXE)/testclass.exe $(TEST)/testclass.cpp
 
 # Standard Make recipes
-all: 
+all: testclass
 
 initialize: 
 	mkdir $(OBJ) $(EXE)
