@@ -29,7 +29,7 @@ class Owner : public Player{
 		Owner(const float& AwardAmountIn, const float& ActualCostIn, const float& BudgetCostIn, const float& EstDollarsIn, const STRING& TypeIn, const STRING& MembersIn, const STRING& CampIDIn, const STRING& CampNameIn, const STRING& ChallIDIn, const STRING& ChallTypeIn, const STRING& CoordinatorIn, const float& WeightAcceptedIn, const float& VolumeIn, const double& EnergyIn, const float& SoundsVolumeIn, const float& YearsIn, const float& SurfaceTempIn, const bool& PreprocessesIn): Player(TypeIn, MembersIn, CampIDIn, CampNameIn, ChallIDIn, ChallTypeIn, CoordinatorIn, WeightAcceptedIn, VolumeIn, EnergyIn, SoundsVolumeIn, YearsIn, SurfaceTempIn, PreprocessesIn), AwardAmount(AwardAmountIn), ActualCost(ActualCostIn), BudgetCost(BudgetCostIn), EstDollars(EstDollarsIn) {}
 
 		//Destructor
-		~Owner(){}
+		~Owner() {};
 
 		// get methods
 			float get_AwardAmount() const{
