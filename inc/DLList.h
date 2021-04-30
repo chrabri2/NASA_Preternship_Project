@@ -270,6 +270,20 @@ class DLList{
 
 	}
 
+	bool pop_back(){
+		if(IsEmpty()){
+			std::cout << "Can't delete from empty list" << std::endl;
+			return (-1);
+		}
+		
+		tail = tail->prev;
+		free(tail->next);
+		return true;
+		
+		
+	}
+
+
 	T front() const{
 		return head->data;
 
