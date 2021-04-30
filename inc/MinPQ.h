@@ -25,7 +25,7 @@ class MinPriorityQueue {
 
 
 		T top(){
-			return PQList.back;
+			return PQList.back();
 
 		}
 		
