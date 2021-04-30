@@ -108,7 +108,7 @@ class DLList{
 			while(curr != NULL && curr->data > value)
 			{
 				prev = curr;
-				cur = curr->next;
+				curr = curr->next;
 			}
 				prev->next = temp;
 				curr->prev = temp;
@@ -178,7 +178,7 @@ class DLList{
 			else{
 				temp = head;
 				head = head ->next;
-				free(temp)
+				free(temp);
 				return true;
 			}
 		}
@@ -282,11 +282,11 @@ class DLList{
 	
 	//friend operator to print out values **Go back and modify this accordinly**
 	
-	friend std::ostreams& operator<<(std::ostream& output, const DLList<T>& theList){
+	friend std::ostream& operator<<(std::ostream& output, const DLList<T>& theList){
 
 		node<T>* curr;
 
-		if(theList(IsEmpty()){
+		if(theList.IsEmpty()){
 			output << "List is empty" << std::endl;
 
 		}

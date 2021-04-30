@@ -26,7 +26,7 @@ class PriorityQueue {
 
 		T top()
 		{
-			return PQList.front;
+			return PQList.front();
 
 		}
 		
