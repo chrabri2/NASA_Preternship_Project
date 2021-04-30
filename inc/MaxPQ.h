@@ -26,8 +26,9 @@ class PriorityQueue {
 
 		T top()
 		{
-			return PQList.front();
-
+      T valueT;
+      valueT = PQList.front();
+      return valueT;
 		}
 		
 		bool empty(){

@@ -13,7 +13,6 @@
 int main() {
   // Declare arrays of double and char test values
   double  dArray[5] = {2.45, 17.94, 8.45, 1, 150.68};
-  char cArray[] = "PreTERnsHIp";
 
   // Double Max and Min PQ Test
   COUT << "Max & Min Double Priority Queue Test" << ENDL;
@@ -30,23 +29,26 @@ int main() {
     dMinPQ.push(dArray[i]);
   }
   COUT << ENDL;
-  
+   
   // Print Max Sorted Values
   COUT << "Max PQ Sorted Doubles" << ENDL;
-  while(!dMaxPQ.empty()){
-    COUT << dMaxPQ.top() << " ";
+  while(dMaxPQ.empty()){
+    double val = dMaxPQ.top();
+    COUT << val << " ";
     dMaxPQ.pop();
   }
   COUT << ENDL;
 
   // Print Min Sorted Values
   COUT << "Min PQ Sorted Doubles" << ENDL;
-  while(!dMinPQ.empty()){
-    COUT << dMinPQ.top() << " ";
+  while(dMinPQ.empty()){
+    double val = dMinPQ.top();
+    COUT << val  << " ";
     dMinPQ.pop();
   }
   COUT << ENDL;
 
+/*
   // Char Max and Min PQ Test
   COUT << ENDL;
   COUT << "Max & Min Char Priority Queue Test" << ENDL;
@@ -67,7 +69,7 @@ int main() {
 
   // Print Max Sorted Values
   COUT << "Max PQ Sorted Chars" << ENDL;
-  while(!cMaxPQ.empty()){
+  while(cMaxPQ.empty()){
     COUT << cMaxPQ.top() << " ";
     cMaxPQ.pop();
   }
@@ -75,11 +77,11 @@ int main() {
 
   // Print Min Sorted Values
   COUT << "Min PQ Sorted Chars" << ENDL;
-  while(!cMinPQ.empty()){
+  while(cMinPQ.empty()){
     COUT << cMinPQ.top() << " ";
     cMinPQ.pop();
   }
   COUT << ENDL;
-
+*/
   return 0;
 }
