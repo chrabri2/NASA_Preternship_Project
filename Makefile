@@ -21,13 +21,18 @@ TEST := test
 
 # file groups
 CLASSES := $(INC)/Player.h $(INC)/Member.h $(INC)/Owner.h
+PQs :=  $(INC)/Node.h $(INC)/DLList.h $(INC)/MaxPQ.h $(INC)/MinPQ.h
 
 # testclass script
 testclass: $(TEST)/testclass.cpp $(CLASSES)
 	$(PP) $(CXXFLAGS) -o $(EXE)/testclass.exe $(TEST)/testclass.cpp
 
+# testPQs script Command: make testPQs
+testPQs: $(SRC)/testPQs.cpp $(PQs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/testPQs.exe $(SRC)/testPQs.cpp
+
 # Standard Make recipes
-all: testclass
+all: testclass testPQs
 
 initialize: 
 	mkdir $(OBJ) $(EXE)

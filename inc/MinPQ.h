@@ -4,13 +4,13 @@
 #include "DLList.h"
 
 template<class T>
-class PriorityQueue {
+class MinPriorityQueue {
 
 	private:
 		DLList<T> PQList;
 	public:
 		//Default Constructor
-		PriorityQueue() PQList(){}
+		MinPriorityQueue(): PQList(){}
 
 		//methods
 		void push(const T& value){	
@@ -24,8 +24,7 @@ class PriorityQueue {
 		}
 
 
-		T top()
-		{
+		T top(){
 			return PQList.back;
 
 		}

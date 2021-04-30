@@ -10,7 +10,7 @@ class PriorityQueue {
 		DLList<T> PQList;
 	public:
 		//Default Constructor
-		PriorityQueue() PQList(){}
+		PriorityQueue(): PQList(){}
 
 		//methods
 		void push(const T& value){	

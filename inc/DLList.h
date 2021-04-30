@@ -4,7 +4,7 @@
 
 #include "Node.h"
 
-#include <cstdlin>
+#include <cstdlib>
 #include <iostream>
 
 
@@ -25,8 +25,8 @@ class DLList{
 			delete head;
 		}
 	
-		//cconstructor
-		DLList(const DLList<T>& copy: head(NULL), tail(NULL){	
+		//constructor
+		DLList(const DLList<T>& copy): head(NULL), tail(NULL){	
 			node<T>* curr = copy.head;
 			
 			while(curr != NULL){	
@@ -87,7 +87,7 @@ class DLList{
 
 	}
 
-	void SortInsert(const &T value){
+	void SortInsert(const T& value){
 		node<T>* temp = new node<T>(value);
 
 		if( IsEmpty()){
@@ -282,7 +282,7 @@ class DLList{
 	
 	//friend operator to print out values **Go back and modify this accordinly**
 	
-	friend std::ostreams& operator<<(std::ostreams& output, const DLList<T>& theList){
+	friend std::ostreams& operator<<(std::ostream& output, const DLList<T>& theList){
 
 		node<T>* curr;
 
