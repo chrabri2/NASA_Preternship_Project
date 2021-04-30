@@ -11,39 +11,39 @@
 #define ENDL std::endl
 
 int main() {
-  // Declare arrays of float and char test values
-  float fArray[5] = {2.56, 17.94, 8.45, 1, 150.68};
+  // Declare arrays of double and char test values
+  double  dArray[5] = {2.45, 17.94, 8.45, 1, 150.68};
   char cArray[] = "PreTERnsHIp";
 
-  // Float Max and Min PQ Test
-  COUT << "Max & Min Float Priority Queue Test" << ENDL;
-  COUT << "Pre-Sort Floats" << ENDL;
+  // Double Max and Min PQ Test
+  COUT << "Max & Min Double Priority Queue Test" << ENDL;
+  COUT << "Pre-Sort Doubles" << ENDL;
   
-  // Declare Float Max & Min PQ
-  PriorityQueue<float> fMaxPQ;
-  MinPriorityQueue<float> fMinPQ;
+  // Declare Double Max & Min PQ
+  PriorityQueue<double> dMaxPQ;
+  MinPriorityQueue<double> dMinPQ;
 
   // Print Pre-sort Values & Push Them to PQ
   for(int i = 0; i < 5; i++) {
-    COUT << fArray[i] << " ";
-    fMaxPQ.push(fArray[i]);
-    fMinPQ.push(fArray[i]);
+    COUT << dArray[i] << " ";
+    dMaxPQ.push(dArray[i]);
+    dMinPQ.push(dArray[i]);
   }
   COUT << ENDL;
   
   // Print Max Sorted Values
-  COUT << "Max PQ Sorted Floats" << ENDL;
-  while(!fMaxPQ.empty()){
-    COUT << fMaxPQ.top() << " ";
-    fMaxPQ.pop();
+  COUT << "Max PQ Sorted Doubles" << ENDL;
+  while(!dMaxPQ.empty()){
+    COUT << dMaxPQ.top() << " ";
+    dMaxPQ.pop();
   }
   COUT << ENDL;
 
   // Print Min Sorted Values
-  COUT << "Min PQ Sorted Floats" << ENDL;
-  while(!fMinPQ.empty()){
-    COUT << fMinPQ.top() << " ";
-    fMinPQ.pop();
+  COUT << "Min PQ Sorted Doubles" << ENDL;
+  while(!dMinPQ.empty()){
+    COUT << dMinPQ.top() << " ";
+    dMinPQ.pop();
   }
   COUT << ENDL;
 
