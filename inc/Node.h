@@ -45,7 +45,7 @@ struct node
 	/* Node pointer assignment operator */
 	node<T>* operator=(const node<T>* assign){
 		
-		if(this != (void *)&assign){
+		if(this != (void *)& assign){
 			this->data = assign->data;
 			this->next = NULL;
 			this->prev = NULL;

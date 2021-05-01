@@ -40,7 +40,7 @@ class DLList{
 
 
 	// Assignment operator for SLL
-	DLList<T>& operator=(DLList<T>&assign){
+	DLList<T>& operator=(DLList<T>& assign){
 		if(this != &assign){
 			node<T>* curr = assign.head;
 
@@ -51,7 +51,7 @@ class DLList{
 
 		}
 
-	return *this;
+	  return *this;
 		
 
 	}
@@ -94,30 +94,29 @@ class DLList{
 			head = temp;
 			tail = temp;
 		}
-		else if(value >= head->data){
-			push_front(value);
+		else if(temp->data >= head->data){
+			push_front(temp->data);
 
 		}
-		else if(value <= tail->data){
-			push_back(value);
+		else if(temp->data <= tail->data){
+			push_back(temp->data);
 		}
 		else{
 			node<T>* prev = NULL;
 			node<T>* curr = head;
 				
-			while(curr != NULL && curr->data > value)
-			{
+			while(curr != NULL){
 				prev = curr;
 				curr = curr->next;
-			}
-				prev->next = temp;
-				curr->prev = temp;
-				temp->prev = prev;
-				temp->next = curr;
-			
+			  if(temp->data >= curr->data){
+				  temp->next = curr;
+				  temp->prev = curr->prev;
+				  prev->next = temp;
+				  curr->prev = temp;
+          break;
+        }
+		  }
 		}
-
-
 	}
 
 
@@ -149,8 +148,8 @@ class DLList{
 			//create new node
 			node<T>* temp = new node<T>(value);
 			
-			temp->next = tail;
-			tail->prev = temp;
+			temp->prev = tail;
+			tail->next = temp;
 			tail = temp;
 
 		}
@@ -275,11 +274,22 @@ class DLList{
 			std::cout << "Can't delete from empty list" << std::endl;
 			return (-1);
 		}
-		
-		tail = tail->prev;
-		free(tail->next);
-		return true;
-		
+		// target is tail (back of list)
+		node<T>* temp = new node<T>();
+		if(head == tail){
+			temp = head;
+			head = NULL;
+			tail = NULL;
+			free(temp);
+			return true;
+		}
+    else {
+      temp = tail;
+		  tail = tail->prev;
+      tail->next = NULL;
+		  free(temp);
+		  return true;		
+    }
 		
 	}
 
@@ -290,7 +300,7 @@ class DLList{
 	}
 
 
-	T back(){
+	T back() const{
 		return tail->data;
 	}
 	
