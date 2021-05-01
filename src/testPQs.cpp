@@ -1,8 +1,8 @@
 // Max and Min Priority Queue Test Script
 // NASA Preternship Group
 
-#include "../inc/MaxPQ.h"
-#include "../inc/MinPQ.h"
+#include "../inc/MaxPriorityQueue.h"
+#include "../inc/MinPriorityQueue.h"
 
 #include <iostream>
 #include <cstdlib>
@@ -19,8 +19,9 @@ int main() {
   COUT << "Pre-Sort Doubles" << ENDL;
   
   // Declare Double Max & Min PQ
-  PriorityQueue<double> dMaxPQ;
+  MaxPriorityQueue<double> dMaxPQ;
   MinPriorityQueue<double> dMinPQ;
+  double val;
 
   // Print Pre-sort Values & Push Them to PQ
   for(int i = 0; i < 5; i++) {
@@ -32,8 +33,8 @@ int main() {
    
   // Print Max Sorted Values
   COUT << "Max PQ Sorted Doubles" << ENDL;
-  while(dMaxPQ.empty()){
-    double val = dMaxPQ.top();
+  while(!dMaxPQ.empty()){
+    val = dMaxPQ.top();
     COUT << val << " ";
     dMaxPQ.pop();
   }
@@ -41,47 +42,12 @@ int main() {
 
   // Print Min Sorted Values
   COUT << "Min PQ Sorted Doubles" << ENDL;
-  while(dMinPQ.empty()){
-    double val = dMinPQ.top();
+  while(!dMinPQ.empty()){
+    val = dMinPQ.top();
     COUT << val  << " ";
     dMinPQ.pop();
   }
   COUT << ENDL;
 
-/*
-  // Char Max and Min PQ Test
-  COUT << ENDL;
-  COUT << "Max & Min Char Priority Queue Test" << ENDL;
-  COUT << "Pre-Sort Chars" << ENDL;
-  COUT << "PreTERnsHIp" << ENDL;
-
-  // Declare Char Max and Min PQ
-  PriorityQueue<char> cMaxPQ;
-  MinPriorityQueue<char> cMinPQ;
-  
-  // Print Pre-sort Values & Push Them to PQ
-  for(int i = 0; i < 11; i++) {
-    COUT << cArray[i] << " ";
-    cMaxPQ.push(cArray[i]);
-    cMinPQ.push(cArray[i]);
-  }
-  COUT << ENDL;
-
-  // Print Max Sorted Values
-  COUT << "Max PQ Sorted Chars" << ENDL;
-  while(cMaxPQ.empty()){
-    COUT << cMaxPQ.top() << " ";
-    cMaxPQ.pop();
-  }
-  COUT << ENDL;
-
-  // Print Min Sorted Values
-  COUT << "Min PQ Sorted Chars" << ENDL;
-  while(cMinPQ.empty()){
-    COUT << cMinPQ.top() << " ";
-    cMinPQ.pop();
-  }
-  COUT << ENDL;
-*/
   return 0;
 }
