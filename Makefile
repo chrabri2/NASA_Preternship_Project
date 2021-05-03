@@ -20,7 +20,7 @@ OBJ  := obj
 TEST := test
 
 # file groups
-CLASSES := $(INC)/Player.h $(INC)/Member.h $(INC)/Owner.h
+CLASSES := $(INC)/Player.h $(INC)/Member.h $(INC)/Owner.h $(INC)/csvio.h
 PQs :=  $(INC)/Node.h $(INC)/DLList.h $(INC)/MaxPQ.h $(INC)/MinPQ.h
 
 # testclass script
