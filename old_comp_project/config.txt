@@ -1,0 +1,4 @@
+windowlength=1080
+windowwidth=720
+xboundary=1120
+yboundary=760
