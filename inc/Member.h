@@ -15,14 +15,45 @@ class Member : public  Player{
 	bool winner;
        
   public:
-    // constructor
+    // constructors
+	// Empty
     Member() : Player(), PrizeMoney(0), rank(0), winner( false ) {}
-
+	
+	// Standard
 	Member(const float& prizeMoneyIn, const int& rankIn, const bool& winnerIn, const STRING& TypeIn, const STRING& MembersIn, const STRING& CampIDIn, const STRING& CampNameIn, const STRING& ChallIDIn, const STRING& ChallTypeIn, const STRING& CoordinatorIn, const float& WeightAcceptedIn, const float& VolumeIn, const double& EnergyIn, const float& SoundsVolumeIn, const float& YearsIn, const float& SurfaceTempIn, const bool& PreprocessesIn) : Player(TypeIn, MembersIn, CampIDIn, CampNameIn, ChallIDIn, ChallTypeIn, CoordinatorIn, WeightAcceptedIn, VolumeIn, EnergyIn, SoundsVolumeIn, YearsIn, SurfaceTempIn, PreprocessesIn), PrizeMoney(prizeMoneyIn), rank(rankIn), winner( winnerIn ) {}
-
+	
+	// Copy
+	Member(const Member& member_in) : Player(member_in.Type, member_in.Members, member_in.CampID, member_in.CampName, member_in.ChallID, member_in.ChallType, member_in.Coordinator, member_in.WeightAccepted, member_in.Volume, member_in.Energy, member_in.SoundsVolume, member_in.Years, member_in.SurfaceTemp, member_in.Preprocesses), PrizeMoney(member_in.PrizeMoney), rank(member_in.rank), winner(member_in.winner) {};
+	
+	// Assignment Operator
+	Member& operator=(const Member& rhs) {
+		if (this == &rhs)
+			return *this;
+		
+		this->Type = rhs.Type;
+		this->Members = rhs.Members;
+		this->CampID = rhs.CampID;
+		this->CampName = rhs.CampName;
+		this->ChallID = rhs.ChallID;
+		this->ChallType = rhs.ChallType;
+		this->Coordinator = rhs.Coordinator;
+		this->WeightAccepted = rhs.WeightAccepted;
+		this->Volume = rhs.Volume;
+		this->Energy = rhs.Energy;
+		this->SoundsVolume = rhs.SoundsVolume;
+		this->Years = rhs.Years;
+		this->SurfaceTemp = rhs.SurfaceTemp;
+		this->Preprocesses = rhs.Preprocesses;
+		this->PrizeMoney = rhs.PrizeMoney;
+		this->rank = rhs.rank;
+		this->winner = rhs.winner;
+		
+		return *this;
+	}
+	
 	// destructor
     ~Member() {}; 
-
+    
 	float get_PrizeMoney () const{
 		return PrizeMoney;
 	}
