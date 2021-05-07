@@ -60,11 +60,40 @@ class Player{
     float get_SurfaceTemp() const{
       return SurfaceTemp;
     }
+
+	bool get_Preprocesses() const {
+	  return Preprocesses;
+	}
   
-    bool get_Preprocess() const{
-      return Preprocesses;
+    STRING get_Type() const{
+      return Type;
+    }
+    
+	STRING get_Members() const{
+      return Members;
     }
 
+    STRING get_CampID() const{
+      return CampID;
+    }
+ 	
+	STRING get_CampName() const {
+	  return CampName;
+	}
+
+    STRING get_ChallID() const{
+      return ChallID;
+    }
+  
+    STRING get_ChallType() const{
+      return ChallType;
+    }
+    
+	STRING get_Coordinator() const{
+      return Coordinator;
+    }
+  
+  
 };
 
 #endif
