@@ -20,8 +20,13 @@ OBJ  := obj
 TEST := test
 
 # file groups
+<<<<<<< HEAD
+CLASSES := $(INC)/Player.h $(INC)/Member.h $(INC)/Owner.h
+PQs :=  $(INC)/Node.h $(INC)/DLList.h $(INC)/MaxPriorityQueue.h $(INC)/MinPriorityQueue.h
+=======
 CLASSES := $(INC)/Player.h $(INC)/Member.h $(INC)/Owner.h $(INC)/csvio.h
 PQs :=  $(INC)/Node.h $(INC)/DLList.h $(INC)/MaxPQ.h $(INC)/MinPQ.h
+>>>>>>> 8117f692c227b0ae73ac4266c6193dda337e370c
 
 # testclass script
 testclass: $(TEST)/testclass.cpp $(CLASSES)
@@ -30,6 +35,10 @@ testclass: $(TEST)/testclass.cpp $(CLASSES)
 # testPQs script Command: make testPQs
 testPQs: $(SRC)/testPQs.cpp $(PQs)
 	$(PP) $(CXXFLAGS) -o $(EXE)/testPQs.exe $(SRC)/testPQs.cpp
+
+# CoECIFinalSimulator
+simulator: $(SRC)/CoECISimulator.cpp $(PQs) $(CLASSES)
+	$(PP) $(CXXFLAGS) -o $(EXE)/CoECISimulator.exe $(SRC)/CoECISimulator.cpp
 
 # Standard Make recipes
 all: testclass testPQs
