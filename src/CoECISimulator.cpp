@@ -30,10 +30,28 @@ int main() {
   int third = 1;
 
   // READ IN CSV DATA
-  // read in solutions
+
+	//Solutions
+  // filenames (hard coded in [at the moment])
+	const char* filein_s = "solutions.csv";
+	const char* fileout_s = "solutionsout.csv";	
+	//csv reader for solutions files
+	CSVReader read_solutions(filein_s, fileout_s);
+	//checks if read in solutions class line by line
+		//read_solutions.readline(solutions);
+	//close reader
+	read_solutions.close();
+
+  //Owner
+	//filenames (hard coded in [at the moment])
+	const char* fileout_v = "vendorout.csv";
+	const char* filein_v = "vendor.csv";
+	//read in owner csv
+	CSVReader read_owner(filein_v, fileout_v); 
+	//checks if line read in for Owner class
+		//	read_owner.readline(challengeOwner);	
 
 
-  // read in owner
 
   // PRIORITY QUEUES
   MaxPriorityQueue<float> weightAcceptedPQ;
@@ -84,7 +102,7 @@ int main() {
     surfactTempPQ.pop();
   }
 
-  for(int l = 0; l < nSolns; l++) {
+  for(int i = 0; i < nSolns; i++) {
     if(solutions[i].get_Preprocess()) {
       scores[j]++;
     }
@@ -106,13 +124,17 @@ int main() {
     scoresPQ.pop();
   }
 
+	// set winner attributes	
+	solutions[winnerIndicies[0]].set_winner() = true;
+	solutions[winnerIndicies[0]].set_PrizeMoney() = challengeOwner.get_AwardAmount();
+
   // FINAL OUTPUT
   COUT << "First Place Solution" << ENDL;
-  COUT << solution[winnerIndicies[0]] << ENDL << ENDL;
+  COUT << solutions[winnerIndicies[0]] << ENDL << ENDL;
   COUT << "Second Place Solution" << ENDL;
-  COUT << solution[winnerIndicies[1]] << ENDL << ENDL;
+  COUT << solutions[winnerIndicies[1]] << ENDL << ENDL;
   COUT << "Third Place Solution" << ENDL;
-  COUT << solution[winnerIndicies[2]] << ENDL << ENDL;
+  COUT << solutions[winnerIndicies[2]] << ENDL << ENDL;
 
   free(solutions);
   free(challengeOwner);
