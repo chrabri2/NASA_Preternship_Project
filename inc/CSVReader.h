@@ -1,3 +1,9 @@
+// CSVReader class
+// Reads and writes various class objects between data and csv files.
+
+#ifndef CSVREADER_H
+#define CSVREADER_H
+
 #include <fstream>
 #include <string>
 #include <iostream>
@@ -197,3 +203,5 @@ class CSVReader {
 			outstream << line << std::endl;
 		}
 };
+
+#endif
