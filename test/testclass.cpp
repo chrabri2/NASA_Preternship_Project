@@ -1,7 +1,7 @@
 #include <iostream>
 #include "../inc/Member.h"
 #include "../inc/Owner.h"
-#include "../inc/csvio.h"
+#include "../inc/CSVReader.h"
 
 int main(int argc, char** argv) {	
 	if (argc > 1) {

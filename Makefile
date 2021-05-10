@@ -18,6 +18,7 @@ SRC  := src
 EXE  := exe
 OBJ  := obj
 TEST := test
+BIN  := bin
 
 # file groups
 PQs :=  $(INC)/Node.h $(INC)/DLList.h $(INC)/MaxPriorityQueue.h $(INC)/MinPriorityQueue.h
@@ -31,12 +32,16 @@ testclass: $(TEST)/testclass.cpp $(CLASSES)
 testPQs: $(SRC)/testPQs.cpp $(PQs)
 	$(PP) $(CXXFLAGS) -o $(EXE)/testPQs.exe $(SRC)/testPQs.cpp
 
+# Objects
+$(SRC)/graphics.o: $(SRC)/graphics.cpp $(INC)/graphics.h
+	$(PP) $(CXXFlags) -c -o $(OBJ)/graphics.o $(SRC)/graphics.cpp
+
 # CoECIFinalSimulator
 simulator: $(SRC)/CoECISimulator.cpp $(PQs) $(CLASSES)
 	$(PP) $(CXXFLAGS) -o $(EXE)/CoECISimulator.exe $(SRC)/CoECISimulator.cpp
 
 # Standard Make recipes
-all: testclass testPQs
+all: testclass testPQs main
 
 initialize: 
 	mkdir $(OBJ) $(EXE)
