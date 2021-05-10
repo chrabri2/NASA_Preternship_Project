@@ -5,9 +5,10 @@
 //  - takes in CSV data
 //  - compares the different data entries using min & max PQs
 //  - calculates the top 3 winning designs
+//  - displays graphical information
 //  - produces the final outputs
 
-#include "../inc/csvio.h"
+#include "../inc/CSVReader.h"
 #include "../inc/Node.h"
 #include "../inc/DLList.h"
 #include "../inc/MaxPriorityQueue.h"
@@ -15,6 +16,7 @@
 #include "../inc/Player.h"
 #include "../inc/Member.h"
 #include "../inc/Owner.h"
+#include "../inc/graphics.h"
 
 #define COUT std::cout
 #define ENDL std::endl
@@ -125,9 +127,13 @@ int main() {
   }
 
 	// set winner attributes	
-	solutions[winnerIndicies[0]].set_winner() = true;
-	solutions[winnerIndicies[0]].set_PrizeMoney() = challengeOwner.get_AwardAmount();
-
+  solutions[winnerIndicies[0]].set_winner() = true;
+  solutions[winnerIndicies[0]].set_PrizeMoney() = challengeOwner.get_AwardAmount();
+  
+  // Graphics output
+  
+  
+  
   // FINAL OUTPUT
   COUT << "First Place Solution" << ENDL;
   COUT << solutions[winnerIndicies[0]] << ENDL << ENDL;

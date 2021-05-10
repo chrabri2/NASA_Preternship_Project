@@ -21,30 +21,34 @@ TEST := test
 BIN  := bin
 
 # file groups
-PQs :=  $(INC)/Node.h $(INC)/DLList.h $(INC)/MaxPriorityQueue.h $(INC)/MinPriorityQueue.h
-CLASSES := $(INC)/Player.h $(INC)/Member.h $(INC)/Owner.h $(INC)/csvio.h
+PQS :=  $(INC)/Node.h $(INC)/DLList.h $(INC)/MaxPriorityQueue.h $(INC)/MinPriorityQueue.h
+CLASSES := $(INC)/Player.h $(INC)/Member.h $(INC)/Owner.h $(INC)/CSVReader.h
+GRAPHICS := $(INC)/graphics.h $(SRC)/graphics.cpp
 
 # testclass script
 testclass: $(TEST)/testclass.cpp $(CLASSES)
 	$(PP) $(CXXFLAGS) -o $(EXE)/testclass.exe $(TEST)/testclass.cpp
 
 # testPQs script Command: make testPQs
-testPQs: $(SRC)/testPQs.cpp $(PQs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/testPQs.exe $(SRC)/testPQs.cpp
+testPQs: $(TEST)/testPQs.cpp $(PQS)
+	$(PP) $(CXXFLAGS) -o $(EXE)/testPQs.exe $(TEST)/testPQs.cpp
 
 # Objects
-$(SRC)/graphics.o: $(SRC)/graphics.cpp $(INC)/graphics.h
-	$(PP) $(CXXFlags) -c -o $(OBJ)/graphics.o $(SRC)/graphics.cpp
+graphics.o: $(GRAPHICS)
+	$(PP) $(CXXFLAGS) -c -o $(OBJ)/graphics.o $(SRC)/graphics.cpp
+
+simulator: simulator.o graphics.o
+	$(PP) $(CXXFLAGS) -o $(EXE)/CoECISimulator $(OBJ)/CoECISimulator.o $(OBJ)/graphics.o $(BIN)/gfx3.o
 
 # CoECIFinalSimulator
-simulator: $(SRC)/CoECISimulator.cpp $(PQs) $(CLASSES)
-	$(PP) $(CXXFLAGS) -o $(EXE)/CoECISimulator.exe $(SRC)/CoECISimulator.cpp
+simulator.o: $(SRC)/CoECISimulator.cpp $(PQS) $(CLASSES)
+	$(PP) $(CXXFLAGS) -c -o $(OBJ)/CoECISimulator.o $(SRC)/CoECISimulator.cpp
 
 # Standard Make recipes
-all: testclass testPQs main
+all: testclass testPQs simulator
 
 initialize: 
 	mkdir $(OBJ) $(EXE)
 
 clean:
-	rm -rf $(OBJ)/* $(EXE)/*
+	rm -rf $(OBJ)/* $(EXE)/* vendorout.csv solutionsout.csv
