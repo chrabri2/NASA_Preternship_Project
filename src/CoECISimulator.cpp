@@ -24,15 +24,11 @@
 int main() {
   // initialize variables
   int nSolns = 7;
-  Member solutions[nSolns] = malloc(7*sizeof(Member));
-  Owner challengeOwner = malloc(sizeof(Owner));
-  int scores[nSolns] = {0, 0, 0, 0, 0, 0, 0};
-  int first = 3;
-  int second = 2;
-  int third = 1;
+  Member solutions[7]; //= malloc(7*sizeof(Member));
+  Owner *challengeOwner = calloc(1, sizeof(Owner));
+  int scores[7] = {0, 0, 0, 0, 0, 0, 0};
 
   // READ IN CSV DATA
-
 	//Solutions
   // filenames (hard coded in [at the moment])
 	const char* filein_s = "solutions.csv";
@@ -70,29 +66,29 @@ int main() {
     energyPQ.push(solutions[i].get_Energy());
     soundsVolumePQ.push(solutions[i].get_SoundsVolume());
     yearsPQ.push(solutions[i].get_Years());
-    surfaceTempPQ(solutions[i].get_SurfaceTemp());
+    surfaceTempPQ.push(solutions[i].get_SurfaceTemp());
   }
   
   // CALCULATE SCORES
   // priority queues
   for(int k = 0; k < 3; k++) { // 1st, 2nd, 3rd  index
-    for(int j = 0; i < nSolns; j++) { // solution index
-      if(weightAcceptedPQ.top() == solutions[i].get_WeightAccepted()) {
+    for(int j = 0; j < nSolns; j++) { // solution index
+      if(weightAcceptedPQ.top() == solutions[j].get_WeightAccepted()) {
         scores[j] += (3 - k);
       }
-      if(volumePQ.top() == solutions[i].get_Volume()) {
+      if(volumePQ.top() == solutions[j].get_Volume()) {
         scores[j] += (3 - k);
       }
-      if(energyPQ.top() == solutions[i].get_Energy()) {
+      if(energyPQ.top() == solutions[j].get_Energy()) {
         scores[j] += (3 - k);
       }
-      if(soundsVolumePQ.top() == solutions[i].get_SoundsVolume()) {
+      if(soundsVolumePQ.top() == solutions[j].get_SoundsVolume()) {
         scores[j] += (3 - k);
       }
-      if(yearsPQ.top() == solutions[i].get_Years()) {
+      if(yearsPQ.top() == solutions[j].get_Years()) {
         scores[j] += (3 - k);
       }
-      if(surfaceTempPQ.top() == solutions[i].get_SurfaceTemp()) {
+      if(surfaceTempPQ.top() == solutions[j].get_SurfaceTemp()) {
         scores[j] += (3 - k);
       }
     }
@@ -101,12 +97,12 @@ int main() {
     energyPQ.pop();
     soundsVolumePQ.pop();
     yearsPQ.pop();
-    surfactTempPQ.pop();
+    surfaceTempPQ.pop();
   }
 
-  for(int i = 0; i < nSolns; i++) {
-    if(solutions[i].get_Preprocess()) {
-      scores[j]++;
+  for(int l = 0; l < nSolns; l++) {
+    if(solutions[l].get_Preprocesses()) {
+      scores[l]++;
     }
   }
 
@@ -127,8 +123,8 @@ int main() {
   }
 
 	// set winner attributes	
-  solutions[winnerIndicies[0]].set_winner() = true;
-  solutions[winnerIndicies[0]].set_PrizeMoney() = challengeOwner.get_AwardAmount();
+  solutions[winnerIndicies[0]].set_winner(true);
+  solutions[winnerIndicies[0]].set_PrizeMoney(challengeOwner->get_AwardAmount());
   
   // Graphics output
   
@@ -142,7 +138,7 @@ int main() {
   COUT << "Third Place Solution" << ENDL;
   COUT << solutions[winnerIndicies[2]] << ENDL << ENDL;
 
-  free(solutions);
+  //free(solutions);
   free(challengeOwner);
   return 0;
 }
