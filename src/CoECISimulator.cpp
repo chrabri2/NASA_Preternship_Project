@@ -25,7 +25,7 @@ int main() {
   // initialize variables
   int nSolns = 7;
   Member solutions[7]; //= malloc(7*sizeof(Member));
-  Owner *challengeOwner = calloc(1, sizeof(Owner));
+  Owner *challengeOwner = new Owner;
   int scores[7] = {0, 0, 0, 0, 0, 0, 0};
 
   // READ IN CSV DATA
