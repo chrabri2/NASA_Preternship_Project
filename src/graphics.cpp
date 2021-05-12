@@ -15,7 +15,7 @@ void draw_boxes(int x, int y){
 	
 	
 	for( int i = 1; i <= 3; i++)
-		gfx_fill_rectangle(3*x/4, i*y/4, 450, y/9);
+		gfx_fill_rectangle(2*x/3, i*y/4, 450, y/9);
 
 }
 
