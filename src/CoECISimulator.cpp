@@ -18,6 +18,7 @@
 #include "../inc/Owner.h"
 #include "../inc/graphics.h"
 #include <cstdio>
+#include <unistd.h>
 
 #define COUT std::cout
 #define ENDL std::endl
@@ -154,77 +155,112 @@ int main() {
   
   gfx_open(xlength, ylength, title);
   bool graphics_run = 1;
-  int key;
-  const char *first, *second, *third;
+  int key = 0;
+  const char *first = (char *)"";
+  const char *second = (char *)"";
+  const char *third = (char *)"";
+  const char *header = (char *)"";
   float first_score = 0.0;
   float second_score = 0.0;
   float third_score = 0.0;
   int first_index = 0;
   int second_index = 0; 
   int third_index = 0;
-  
+  int status;
+  draw_frame(key, xlength, ylength, first, header, (int)first_score, second, (int)second_score, third, (int)third_score);
+
   // Event loop
   while (graphics_run) {
-    key = gfx_wait();
+    status = gfx_event_waiting();
 	
+	if (status) {
+	key = gfx_wait();
+	bool update = false;
 	switch(key) {
 	  case 'q': graphics_run = false; break;
-	  case '1': 
+	  case '7': 
 	  	first_index = surfaceTempRank[0];
 		second_index = surfaceTempRank[1];
 		third_index = surfaceTempRank[2];
 		first_score = solutions[first_index].get_SurfaceTemp();
 		second_score = solutions[second_index].get_SurfaceTemp();
 		third_score = solutions[third_index].get_SurfaceTemp();
+		header = (char *)"Temp (K)";
+		update = true;
 	  break;
-	  case '2': break;
+	  case '6': 
 	  	first_index = yearsRank[0];
 		second_index = yearsRank[1];
 		third_index = yearsRank[2];
 		first_score = solutions[first_index].get_Years();
 		second_score = solutions[second_index].get_Years();
 		third_score = solutions[third_index].get_Years();
-	  case '3': break;
+		header = (char *)"Years";
+		update = true;
+	  break;
+	  case '5': 
 	  	first_index = soundsVolumeRank[0];
 		second_index = soundsVolumeRank[1];
 		third_index = soundsVolumeRank[2];
 		first_score = solutions[first_index].get_SoundsVolume();
 		second_score = solutions[second_index].get_SoundsVolume();
 		third_score = solutions[third_index].get_SoundsVolume();
-	  case '4': break;
+		header = (char *)"Volume (dB)";
+		update = true;
+	  break;
+	  case '4': 
 	  	first_index = energyRank[0];
 		second_index = energyRank[1];
 		third_index = energyRank[2];
 		first_score = (float)(solutions[first_index].get_Energy());
 		second_score = (float)(solutions[second_index].get_Energy());
 		third_score = (float)(solutions[third_index].get_Energy());
-	  case '5': break;
+		header = (char *)"Energy (kJ)";
+		update = true;
+	  break;
+	  case '3': 
 	  	first_index = volumeRank[0];
 		second_index = volumeRank[1];
 		third_index = volumeRank[2];
 		first_score = solutions[first_index].get_Volume();
 		second_score = solutions[second_index].get_Volume();
 		third_score = solutions[third_index].get_Volume();
-	  case '6': break;
+		header = (char *)"Volume (L)";
+		update = true;
+	  break;
+	  case '2': 
 	  	first_index = weightAcceptedRank[0];
 		second_index = weightAcceptedRank[1];
 		third_index = weightAcceptedRank[2];
 		first_score = solutions[first_index].get_WeightAccepted();
 		second_score = solutions[second_index].get_WeightAccepted();
 		third_score = solutions[third_index].get_WeightAccepted();
-	  case '7': break;
+		header = (char *)"Weight (kg)";
+		update = true;
+	  break;
+	  case '1': 
 	  	first_index = winnerIndices[0];
 		second_index = winnerIndices[1];
 		third_index = winnerIndices[2];
 		first_score = (float)scores[first_index];
 		second_score = (float)scores[second_index];
 		third_score = (float)scores[third_index];
+		header = (char *)"Score";
+		update = true;
+	  break;
 	}
 	first = solutions[first_index].get_Type().data();
 	second = solutions[second_index].get_Type().data();
 	third = solutions[third_index].get_Type().data();
+	if (update) {
+	  draw_frame(key, xlength, ylength, header, first, (int)first_score, second, (int)second_score, third, (int)third_score);
+	}
+	}
 
+<<<<<<< HEAD
 	draw_frame(/*key,*/ xlength, ylength, first, (int)first_score, second, (int)second_score, third, (int)third_score);
+=======
+>>>>>>> a0495dd67336da9a94d8e444712df5f7f0a8bfb8
   }
   
   // FINAL OUTPUT

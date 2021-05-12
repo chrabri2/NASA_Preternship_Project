@@ -7,52 +7,78 @@
 
 void draw_button(int i, int x, int y){
 	gfx_color(100,0,0);
-	gfx_rectangle(x/4, i*y/8, x/5+6, y/9+6);
+	gfx_rectangle(10, (i+10-'1')*y/18+5, x/5, y/19);
 	gfx_color(10,10,10);
 }
 
-void draw_boxes(int x, int y){
-
-	for( int i = 1; i <= 7; i++)
-		gfx_rectangle(x/4, i*y/8, x/5, y/9);
-
+void draw_boxes(int y, int first_value, int second_value, int third_value){
+	
+	if (first_value && second_value && third_value) {
+		if (first_value > third_value) {
+			gfx_fill_rectangle(530, 1*y/4+60, 450, y/9);
+			gfx_fill_rectangle(530, 2*y/4+60, 450*second_value/first_value, y/9);
+			gfx_fill_rectangle(530, 3*y/4+60, 450*third_value/first_value, y/9);
+		} else {
+			gfx_fill_rectangle(530, 1*y/4+60, 450*first_value/third_value, y/9);
+			gfx_fill_rectangle(530, 2*y/4+60, 450*second_value/third_value, y/9);
+			gfx_fill_rectangle(530, 3*y/4+60, 450, y/9);
+		}
+	}
 }
 
-void text_options(int x, int y){
+void text_options( int y){
+	
+	
 
 	gfx_color(200, 200, 200);
-
-	gfx_text(x/4, 7*y/8, "overall");
-	gfx_text(x/4, 6*y/8, "weight");
-	gfx_text(x/4, 5*y/8, "volume");
-	gfx_text(x/4, 4*y/8, "energy");
-	gfx_text(x/4, 3*y/8, "sounds");
-	gfx_text(x/4, 2*y/8, "years");
-	gfx_text(x/4, y/8, "surface temp");
+	
+	gfx_text(15, 10*y/18-10, "Select option on keyboard");
+	gfx_text(15, 11*y/18-10, "1. overall");
+	gfx_text(15, 12*y/18-10, "2. weight");
+	gfx_text(15, 13*y/18-10, "3. volume");
+	gfx_text(15, 14*y/18-10, "4. energy");
+	gfx_text(15, 15*y/18-10, "5. sounds");
+	gfx_text(15, 16*y/18-10, "6. years");
+	gfx_text(15, 17*y/18-10, "7. surface temp");
+	gfx_text(15, 18*y/18-10, "q. quit");
 
 }
 
+<<<<<<< HEAD
 int draw_frame(/*int c,*/ int x, int y, const char *first, int first_money, const char *second, int second_money, const char * third, int third_money){
+=======
+void draw_frame( int c, int x, int y, const char *param, const char *first, int first_value, const char *second, int second_value, const char * third, int third_value) {
+>>>>>>> a0495dd67336da9a94d8e444712df5f7f0a8bfb8
 	
 	gfx_clear_color(10, 10, 300);
-	gfx_color(10,10,10);
+	gfx_clear();
+	
+	gfx_color(100,100,100);
 
-	draw_boxes(x,y);
-	//draw_button(c, x, y);
-	text_options(x, y);
-
+	gfx_changefont((char *)"12x24");
+	draw_boxes(y, first_value, second_value, third_value);
+	draw_button(c, x, y);
+	text_options( y);
+	
 	char buffer[BUFSIZ];
+	
+	std::sprintf(buffer, "NASA Waste Handling in");
+	gfx_text(25, 150, buffer);
+	gfx_text(30, 200, "Space Competition");
 
-	std::sprintf(buffer, "1. %s     $%d",first, first_money);
-	gfx_text(3*x/4, 3*y/4, buffer);
 
-	std::sprintf(buffer, "2. %s     $%d",second, second_money);
-	gfx_text(3*x/4, 3*y/4, buffer);
+	std::sprintf(buffer, "1. %s     %s: %d",first, param, first_value);
 
-	std::sprintf(buffer,"3. %s     $%d",third, third_money);
-	gfx_text(3*x/4, 3*y/4, buffer);
+	gfx_text(x/2, y/4+(y/18), buffer);
 
-	/*gfx_flush();
+	std::sprintf(buffer, "2. %s     %s: %d",second, param, second_value);
+	gfx_text(x/2, 2*y/4+y/18, buffer);
+
+	std::sprintf(buffer,"3. %s     %s: %d",third, param, third_value);
+	gfx_text(x/2, 3*y/4+y/18, buffer);
+
+	gfx_flush();
+/*
 	while(1){
 		gfx_wait();
 		int new_x =  gfx_xpos();
@@ -73,8 +99,9 @@ int draw_frame(/*int c,*/ int x, int y, const char *first, int first_money, cons
 				top = top + it*change;
 			}
 		}
-	}*/
-	return 0;
+	}
+*/
+	return;
 }
 
 
