@@ -7,16 +7,23 @@
 
 void draw_button(int i, int x, int y){
 	gfx_color(100,0,0);
-	gfx_rectangle(10, (i+10-'1')*y/18+15, x/5, y/19);
+	gfx_rectangle(10, (i+10-'1')*y/18+5, x/5, y/19);
 	gfx_color(10,10,10);
 }
 
-void draw_boxes(int x, int y){
+void draw_boxes(int y, int first_value, int second_value, int third_value){
 	
-	
-	for( int i = 1; i <= 3; i++)
-		gfx_fill_rectangle(550, i*y/4, 450, y/9);
-
+	if (first_value && second_value && third_value) {
+		if (first_value > third_value) {
+			gfx_fill_rectangle(530, 1*y/4+60, 450, y/9);
+			gfx_fill_rectangle(530, 2*y/4+60, 450*second_value/first_value, y/9);
+			gfx_fill_rectangle(530, 3*y/4+60, 450*third_value/first_value, y/9);
+		} else {
+			gfx_fill_rectangle(530, 1*y/4+60, 450*first_value/third_value, y/9);
+			gfx_fill_rectangle(530, 2*y/4+60, 450*second_value/third_value, y/9);
+			gfx_fill_rectangle(530, 3*y/4+60, 450, y/9);
+		}
+	}
 }
 
 void text_options( int y){
@@ -25,14 +32,15 @@ void text_options( int y){
 
 	gfx_color(200, 200, 200);
 	
-	gfx_text(15, 10*y/18, "Select option on keyboard");
-	gfx_text(15, 11*y/18, "1. overall");
-	gfx_text(15, 12*y/18, "2. weight");
-	gfx_text(15, 13*y/18, "3. volume");
-	gfx_text(15, 14*y/18, "4. energy");
-	gfx_text(15, 15*y/18, "5. sounds");
-	gfx_text(15, 16*y/18, "6. years");
-	gfx_text(15, 17*y/18, "7. surface temp");
+	gfx_text(15, 10*y/18-10, "Select option on keyboard");
+	gfx_text(15, 11*y/18-10, "1. overall");
+	gfx_text(15, 12*y/18-10, "2. weight");
+	gfx_text(15, 13*y/18-10, "3. volume");
+	gfx_text(15, 14*y/18-10, "4. energy");
+	gfx_text(15, 15*y/18-10, "5. sounds");
+	gfx_text(15, 16*y/18-10, "6. years");
+	gfx_text(15, 17*y/18-10, "7. surface temp");
+	gfx_text(15, 18*y/18-10, "q. quit");
 
 }
 
@@ -44,7 +52,7 @@ void draw_frame( int c, int x, int y, const char *param, const char *first, int 
 	gfx_color(100,100,100);
 
 	gfx_changefont((char *)"12x24");
-	draw_boxes(x,y);
+	draw_boxes(y, first_value, second_value, third_value);
 	draw_button(c, x, y);
 	text_options( y);
 	
