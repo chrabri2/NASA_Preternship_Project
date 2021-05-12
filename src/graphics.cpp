@@ -7,7 +7,7 @@
 
 void draw_button(int i, int x, int y){
 	gfx_color(100,0,0);
-	gfx_rectangle(25, (i+10)*y/18+15, x/5, y/19);
+	gfx_rectangle(10, (i+10)*y/18+15, x/5, y/19);
 	gfx_color(10,10,10);
 }
 
@@ -15,7 +15,7 @@ void draw_boxes(int x, int y){
 	
 	
 	for( int i = 1; i <= 3; i++)
-		gfx_fill_rectangle(3*x/4, i*y/4, 100, y/9);
+		gfx_fill_rectangle(3*x/4, i*y/4, 450, y/9);
 
 }
 
@@ -50,9 +50,10 @@ int draw_frame( int c, int x, int y, const char *first, int first_money, const c
 	
 	char buffer[BUFSIZ];
 	
-	std::sprintf(buffer, "NASA Waste Handling in\n Space Competition");
+	std::sprintf(buffer, "NASA Waste Handling in");
 	gfx_text(25, 50, buffer);
-
+	gfx_text(30, 100, "Space Competition");
+	
 	std::sprintf(buffer, "1. %s     score: %d",first, first_money);
 	gfx_text(x/2, y/4+(y/18), buffer);
 
