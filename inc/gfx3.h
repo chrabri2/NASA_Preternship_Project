@@ -2,9 +2,10 @@
 
 #ifndef GFX3_H
 #define GFX3_H
-
+extern "C" {
 #include <X11/Xlib.h>
 #include <X11/cursorfont.h> 
+
 
 // Open a new graphics window. 
 void gfx_open( int width, int height, const char *title );
@@ -99,6 +100,8 @@ int gfx_textpixelheight( char *text, char *fontname );
 // change the cursor (mouse pointer)
 //  (see the file /usr/include/X11/cursorfont.h for possible cursors)
 void gfx_changecursor( int );
+
+}
 
 #endif
 

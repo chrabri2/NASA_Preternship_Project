@@ -1,7 +1,7 @@
 // Project graphics function file
 
 #include "../inc/graphics.h"
-
+#include <cstdio>
 
 // Helper functions
 
@@ -32,7 +32,7 @@ void text_options(int x, int y){
 
 }
 
-void draw_frame( int c, int x, int y, char *first, int first_money, char *second, int second_money, char * third, int third_money) {
+int draw_frame( int c, int x, int y, char *first, int first_money, char *second, int second_money, char * third, int third_money) {
 	
 	gfx_clear_color(10, 10, 300);
 	gfx_color(10,10,10);
@@ -57,17 +57,17 @@ void draw_frame( int c, int x, int y, char *first, int first_money, char *second
 		gfx_wait();
 		int new_x =  gfx_xpos();
 		int new_y =  gfx_ypos();
-		bottom = (y/8)-(y/18);
-		top = (y/8)+(y/18);
+		int bottom = (y/8)-(y/18);
+		int top = (y/8)+(y/18);
 
-		change = y/8;
+		int change = y/8;
 		
-		lbound = y/4+(y/10);
-		rbound = y/4-(y/10);
+		int lbound = y/4+(y/10);
+		int rbound = y/4-(y/10);
 
-		if(rboud <= new_x <= lbound){
+		if((rbound <= new_x) && (new_x <= lbound)) {
 			for( int it = 1; it<8; it++){
-				if( bottom <= new_y <= top)
+				if(( bottom <= new_y) && (new_y <= top))
 					return it;
 				bottom = bottom + it*change;
 				top = top + it*change;

@@ -17,6 +17,7 @@
 #include "../inc/Member.h"
 #include "../inc/Owner.h"
 #include "../inc/graphics.h"
+#include <cstdio>
 
 #define COUT std::cout
 #define ENDL std::endl
@@ -34,7 +35,7 @@ int main() {
 	const char* filein_s = "solutions.csv";
 	const char* fileout_s = "solutionsout.csv";	
 	//csv reader for solutions files
-	CSVReader read_solutions(filein_s, fileout_s);
+	CSVReader read_solutions(fileout_s, filein_s);
 	//checks if read in solutions class line by line
 		//read_solutions.readline(solutions);
 	//close reader
@@ -45,7 +46,7 @@ int main() {
 	const char* fileout_v = "vendorout.csv";
 	const char* filein_v = "vendor.csv";
 	//read in owner csv
-	CSVReader read_owner(filein_v, fileout_v); 
+	CSVReader read_owner(fileout_v, filein_v); 
 	//checks if line read in for Owner class
 		//	read_owner.readline(challengeOwner);	
 
@@ -96,6 +97,7 @@ int main() {
     volumePQ.pop();
     energyPQ.pop();
     soundsVolumePQ.pop();
+
     yearsPQ.pop();
     surfaceTempPQ.pop();
   }

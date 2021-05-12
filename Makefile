@@ -38,7 +38,7 @@ graphics.o: $(GRAPHICS)
 	$(PP) $(CXXFLAGS) -c -o $(OBJ)/graphics.o $(SRC)/graphics.cpp
 
 simulator: simulator.o graphics.o
-	$(PP) $(CXXFLAGS) -o $(EXE)/CoECISimulator $(OBJ)/CoECISimulator.o $(OBJ)/graphics.o $(BIN)/gfx3.o
+	$(PP) $(CXXFLAGS) -o $(EXE)/CoECISimulator $(OBJ)/CoECISimulator.o $(OBJ)/graphics.o $(BIN)/gfx3.o -lX11
 
 # CoECIFinalSimulator
 simulator.o: $(SRC)/CoECISimulator.cpp $(PQS) $(CLASSES)
