@@ -195,7 +195,7 @@ class DLList{
 				//deletes the node with the target val
 				temp = curr;
 				
-				if(curr = tail){
+				if(curr == tail){
 					tail = prev;
 				}
 				

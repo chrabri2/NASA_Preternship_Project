@@ -134,7 +134,7 @@ int main() {
   
 
   int winnerIndices[3] = {0};  
-  for (int o = 0; o < 7; o++) {
+  for (int o = 0; o < 3; o++) {
     for(int n = 0; n < nSolns; n++) {
       if(scoresPQ.top() == scores[n]) {
         winnerIndices[o] = n;
