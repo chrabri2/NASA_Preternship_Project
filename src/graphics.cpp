@@ -7,7 +7,7 @@
 
 void draw_button(int i, int x, int y){
 	gfx_color(100,0,0);
-	gfx_rectangle(35, (i+10)*y/18, x/5, y/19);
+	gfx_rectangle(25, (i+10)*y/18+15, x/5, y/19);
 	gfx_color(10,10,10);
 }
 
@@ -15,7 +15,7 @@ void draw_boxes(int x, int y){
 	
 	
 	for( int i = 1; i <= 3; i++)
-		gfx_fill_rectangle(3*x/4, i*y/4, x/5, y/9);
+		gfx_fill_rectangle(3*x/4, i*y/4, x/3, y/9);
 
 }
 
