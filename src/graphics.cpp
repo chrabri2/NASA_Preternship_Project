@@ -24,7 +24,7 @@ void text_options(int x, int y){
 
 	gfx_text(x/4, 7*y/8, "overall");
 	gfx_text(x/4, 6*y/8, "weight");
-	gfx_text(x/4, 5*y/8, "vollume");
+	gfx_text(x/4, 5*y/8, "volume");
 	gfx_text(x/4, 4*y/8, "energy");
 	gfx_text(x/4, 3*y/8, "sounds");
 	gfx_text(x/4, 2*y/8, "years");
@@ -32,13 +32,13 @@ void text_options(int x, int y){
 
 }
 
-int draw_frame( int c, int x, int y, char *first, int first_money, char *second, int second_money, char * third, int third_money) {
+int draw_frame( int c, int x, int y, const char *first, int first_money, const char *second, int second_money, const char * third, int third_money) {
 	
 	gfx_clear_color(10, 10, 300);
 	gfx_color(10,10,10);
 
 	draw_boxes(x,y);
-	draw_button(c, x, y);
+	//draw_button(c, x, y);
 	text_options(x, y);
 
 	char buffer[BUFSIZ];
@@ -52,7 +52,7 @@ int draw_frame( int c, int x, int y, char *first, int first_money, char *second,
 	std::sprintf(buffer,"3. %s     $%d",third, third_money);
 	gfx_text(3*x/4, 3*y/4, buffer);
 
-	gfx_flush();
+	/*gfx_flush();
 	while(1){
 		gfx_wait();
 		int new_x =  gfx_xpos();
@@ -73,7 +73,8 @@ int draw_frame( int c, int x, int y, char *first, int first_money, char *second,
 				top = top + it*change;
 			}
 		}
-	}
+	}*/
+	return 0;
 }
 
 
