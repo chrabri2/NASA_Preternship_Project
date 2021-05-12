@@ -44,11 +44,10 @@ void text_options( int y){
 
 }
 
-<<<<<<< HEAD
-int draw_frame(/*int c,*/ int x, int y, const char *first, int first_money, const char *second, int second_money, const char * third, int third_money){
-=======
+
+//int draw_frame(int c,int x, int y, const char *first, int first_money, const char *second, int second_money, const char * third, int third_money){
+
 void draw_frame( int c, int x, int y, const char *param, const char *first, int first_value, const char *second, int second_value, const char * third, int third_value) {
->>>>>>> a0495dd67336da9a94d8e444712df5f7f0a8bfb8
 	
 	gfx_clear_color(10, 10, 300);
 	gfx_clear();
