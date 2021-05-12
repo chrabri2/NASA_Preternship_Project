@@ -186,7 +186,7 @@ int main() {
 		third_score = solutions[third_index].get_SurfaceTemp();
 		update = true;
 	  break;
-	  case '2': break;
+	  case '2': 
 	  	first_index = yearsRank[0];
 		second_index = yearsRank[1];
 		third_index = yearsRank[2];
@@ -194,7 +194,8 @@ int main() {
 		second_score = solutions[second_index].get_Years();
 		third_score = solutions[third_index].get_Years();
 		update = true;
-	  case '3': break;
+	  break;
+	  case '3': 
 	  	first_index = soundsVolumeRank[0];
 		second_index = soundsVolumeRank[1];
 		third_index = soundsVolumeRank[2];
@@ -202,7 +203,8 @@ int main() {
 		second_score = solutions[second_index].get_SoundsVolume();
 		third_score = solutions[third_index].get_SoundsVolume();
 		update = true;
-	  case '4': break;
+	  break;
+	  case '4': 
 	  	first_index = energyRank[0];
 		second_index = energyRank[1];
 		third_index = energyRank[2];
@@ -210,7 +212,8 @@ int main() {
 		second_score = (float)(solutions[second_index].get_Energy());
 		third_score = (float)(solutions[third_index].get_Energy());
 		update = true;
-	  case '5': break;
+	  break;
+	  case '5': 
 	  	first_index = volumeRank[0];
 		second_index = volumeRank[1];
 		third_index = volumeRank[2];
@@ -218,7 +221,8 @@ int main() {
 		second_score = solutions[second_index].get_Volume();
 		third_score = solutions[third_index].get_Volume();
 		update = true;
-	  case '6': break;
+	  break;
+	  case '6': 
 	  	first_index = weightAcceptedRank[0];
 		second_index = weightAcceptedRank[1];
 		third_index = weightAcceptedRank[2];
@@ -226,7 +230,8 @@ int main() {
 		second_score = solutions[second_index].get_WeightAccepted();
 		third_score = solutions[third_index].get_WeightAccepted();
 		update = true;
-	  case '7': break;
+	  break;
+	  case '7': 
 	  	first_index = winnerIndices[0];
 		second_index = winnerIndices[1];
 		third_index = winnerIndices[2];
@@ -234,6 +239,7 @@ int main() {
 		second_score = (float)scores[second_index];
 		third_score = (float)scores[third_index];
 		update = true;
+	  break;
 	}
 	first = solutions[first_index].get_Type().data();
 	second = solutions[second_index].get_Type().data();
