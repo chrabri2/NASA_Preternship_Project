@@ -20,23 +20,25 @@ void draw_boxes(int x, int y){
 }
 
 void text_options(int x, int y){
+	
+	
 
 	gfx_color(200, 200, 200);
 	
-	gfx_text(x/5, y/9"Select option on keyboard");
-	gfx_text(x/5, 2*y/9, "1. overall");
-	gfx_text(x/5, 3*y/9, "2. weight");
-	gfx_text(x/5, 4*y/9, "3. volume");
-	gfx_text(x/5, 5*y/9, "4. energy");
-	gfx_text(x/5, 6*y/9, "5. sounds");
-	gfx_text(x/5, 7*y/9, "6. years");
-	gfx_text(x/5, 8*y/9, "7. surface temp");
+	gfx_text(x/5, 10*y/9"Select option on keyboard");
+	gfx_text(x/5, 11*y/18, "1. overall");
+	gfx_text(x/5, 12*y/18, "2. weight");
+	gfx_text(x/5, 13*y/18, "3. volume");
+	gfx_text(x/5, 14*y/18, "4. energy");
+	gfx_text(x/5, 15*y/18, "5. sounds");
+	gfx_text(x/5, 16*y/18, "6. years");
+	gfx_text(x/5, 17*y/18, "7. surface temp");
 
 }
 
 int draw_frame( int c, int x, int y, const char *first, int first_money, const char *second, int second_money, const char * third, int third_money) {
 	
-	gfx_changefont("12x24");
+	
 	
 	gfx_clear_color(10, 10, 300);
 	gfx_color(100,100,100);
@@ -45,7 +47,7 @@ int draw_frame( int c, int x, int y, const char *first, int first_money, const c
 	draw_button(c, x, y);
 	text_options(x, y);
 	
-	
+	gfx_changefont("12x24");
 	char buffer[BUFSIZ];
 
 	std::sprintf(buffer, "1. %s     $%d",first, first_money);
