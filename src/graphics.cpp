@@ -15,7 +15,7 @@ void draw_boxes(int x, int y){
 	
 	
 	for( int i = 1; i <= 3; i++)
-		gfx_fill_rectangle(2*x/3, i*y/4, 450, y/9);
+		gfx_fill_rectangle(550, i*y/4, 450, y/9);
 
 }
 
@@ -51,8 +51,8 @@ void draw_frame( int c, int x, int y, const char *param, const char *first, int 
 	char buffer[BUFSIZ];
 	
 	std::sprintf(buffer, "NASA Waste Handling in");
-	gfx_text(25, 50, buffer);
-	gfx_text(30, 100, "Space Competition");
+	gfx_text(25, 150, buffer);
+	gfx_text(30, 200, "Space Competition");
 
 
 	std::sprintf(buffer, "1. %s     %s: %d",first, param, first_value);
