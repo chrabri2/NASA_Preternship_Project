@@ -7,7 +7,7 @@
 
 void draw_button(int i, int x, int y){
 	gfx_color(100,0,0);
-	gfx_rectangle(x/4, i*y/8, x/5+6, y/9+6);
+	gfx_rectangle(35, (i+10)*y/18, x/5, y/19);
 	gfx_color(10,10,10);
 }
 
@@ -19,7 +19,7 @@ void draw_boxes(int x, int y){
 
 }
 
-void text_options(int x, int y){
+void text_options( int y){
 	
 	
 
@@ -45,19 +45,19 @@ int draw_frame( int c, int x, int y, const char *first, int first_money, const c
 
 	draw_boxes(x,y);
 	draw_button(c, x, y);
-	text_options(x, y);
+	text_options( y);
 	
-	gfx_changefont(char *"12x24");
+	gfx_changefont((char *)"12x24");
 	char buffer[BUFSIZ];
 
 	std::sprintf(buffer, "1. %s     score: %d",first, first_money);
-	gfx_text(3*x/4, y/4, buffer);
+	gfx_text(x/2, y/4+(y/18), buffer);
 
 	std::sprintf(buffer, "2. %s     score: %d",second, second_money);
-	gfx_text(3*x/4, 2*y/4, buffer);
+	gfx_text(x/2, 2*y/4+y/18, buffer);
 
 	std::sprintf(buffer,"3. %s     score: %d",third, third_money);
-	gfx_text(3*x/4, 3*y/4, buffer);
+	gfx_text(x/2, 3*y/4+y/18, buffer);
 
 	gfx_flush();
 /*
