@@ -51,13 +51,13 @@ int draw_frame( int c, int x, int y, const char *first, int first_money, const c
 	char buffer[BUFSIZ];
 
 	std::sprintf(buffer, "1. %s     score: %d",first, first_money);
-	gfx_text(3*x/4, y/4, buffer);
+	gfx_text(x/2, y/4+(y/18), buffer);
 
 	std::sprintf(buffer, "2. %s     score: %d",second, second_money);
-	gfx_text(3*x/4, 2*y/4, buffer);
+	gfx_text(x/2, 2*y/4+y/18, buffer);
 
 	std::sprintf(buffer,"3. %s     score: %d",third, third_money);
-	gfx_text(3*x/4, 3*y/4, buffer);
+	gfx_text(x/2, 3*y/4+y/18, buffer);
 
 	gfx_flush();
 /*
