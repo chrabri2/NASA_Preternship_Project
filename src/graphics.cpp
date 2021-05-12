@@ -32,7 +32,7 @@ void text_options(int x, int y){
 
 }
 
-int draw_frame( int c, int x, int y, const char *first, int first_money, const char *second, int second_money, const char * third, int third_money) {
+int draw_frame(/*int c,*/ int x, int y, const char *first, int first_money, const char *second, int second_money, const char * third, int third_money){
 	
 	gfx_clear_color(10, 10, 300);
 	gfx_color(10,10,10);

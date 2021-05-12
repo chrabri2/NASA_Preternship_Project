@@ -12,6 +12,8 @@ class MaxPriorityQueue {
 		//Default Constructor
 		MaxPriorityQueue(): PQList(){}
 
+		//Destructor
+
 		//methods
 		void push(const T& value){	
 			PQList.SortInsert(value);

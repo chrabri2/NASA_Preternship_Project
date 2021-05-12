@@ -95,7 +95,7 @@ class Member : public  Player{
 		output<<"Surface Temp: " << memberIn.SurfaceTemp<<ENDL;
 		output<<"Preprocesses: " << memberIn.Preprocesses<<ENDL;
 		output<<"PrizeMoney: " << memberIn.PrizeMoney<<ENDL;
-		output<<"Rank: " << memberIn.rank<<ENDL;
+//		output<<"Rank: " << memberIn.rank<<ENDL;
 		if( memberIn.winner ) output<<"Winner!"<<ENDL<<ENDL;
 		
 		return output;

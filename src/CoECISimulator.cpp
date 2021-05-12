@@ -133,7 +133,7 @@ int main() {
   
 
   int winnerIndices[3] = {0};  
-  for (int o = 0; o < 7; o++) {
+  for (int o = 0; o < 3; o++) {
     for(int n = 0; n < nSolns; n++) {
       if(scoresPQ.top() == scores[n]) {
         winnerIndices[o] = n;
@@ -224,7 +224,7 @@ int main() {
 	second = solutions[second_index].get_Type().data();
 	third = solutions[third_index].get_Type().data();
 
-	draw_frame(key, xlength, ylength, first, (int)first_score, second, (int)second_score, third, (int)third_score);
+	draw_frame(/*key,*/ xlength, ylength, first, (int)first_score, second, (int)second_score, third, (int)third_score);
   }
   
   // FINAL OUTPUT

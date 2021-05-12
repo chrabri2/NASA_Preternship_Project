@@ -23,6 +23,7 @@ class DLList{
 		//destructor
 		~DLList(){
 			delete head;
+			//delete tail;
 		}
 	
 		//constructor
@@ -98,14 +99,14 @@ class DLList{
 			push_front(temp->data);
 
 		}
-		else if(temp->data <= tail->data){
+		else if( temp->data <= tail->data){
 			push_back(temp->data);
 		}
 		else{
 			node<T>* prev = NULL;
 			node<T>* curr = head;
 				
-			while(curr != NULL){
+		while(curr != NULL){
 				prev = curr;
 				curr = curr->next;
 			  if(temp->data >= curr->data){
@@ -113,8 +114,12 @@ class DLList{
 				  temp->prev = curr->prev;
 				  prev->next = temp;
 				  curr->prev = temp;
-          break;
+        	break;
         }
+					prev -> next = temp;
+					curr -> prev = temp; 
+					temp -> prev = prev; 
+					temp -> next = curr;
 		  }
 		}
 	}
@@ -195,7 +200,7 @@ class DLList{
 				//deletes the node with the target val
 				temp = curr;
 				
-				if(curr = tail){
+				if(curr == tail){
 					tail = prev;
 				}
 				
@@ -257,6 +262,7 @@ class DLList{
 			head = NULL;
 			tail = NULL;
 			free(temp);
+//			delete temp;
 			return true;
 		}
 		else{
@@ -264,6 +270,7 @@ class DLList{
 			head = head->next;
 			head->prev = NULL;
 			free(temp);
+//			delete temp;
 			return true;
 		}
 
@@ -281,6 +288,7 @@ class DLList{
 			head = NULL;
 			tail = NULL;
 			free(temp);
+//			delete temp;
 			return true;
 		}
     else {
@@ -288,11 +296,11 @@ class DLList{
 		  tail = tail->prev;
       tail->next = NULL;
 		  free(temp);
+//			delete temp;
 		  return true;		
     }
 		
 	}
-
 
 	T front() const{
 		return head->data;
