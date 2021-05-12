@@ -18,6 +18,7 @@
 #include "../inc/Owner.h"
 #include "../inc/graphics.h"
 #include <cstdio>
+#include <unistd.h>
 
 #define COUT std::cout
 #define ENDL std::endl
@@ -154,19 +155,26 @@ int main() {
   
   gfx_open(xlength, ylength, title);
   bool graphics_run = 1;
-  int key;
-  const char *first, *second, *third;
+  int key = 0;
+  const char *first = (char *)"";
+  const char *second = (char *)"";
+  const char *third = (char *)"";
   float first_score = 0.0;
   float second_score = 0.0;
   float third_score = 0.0;
   int first_index = 0;
   int second_index = 0; 
   int third_index = 0;
-  
+  int status;
+  draw_frame(key, xlength, ylength, first, (int)first_score, second, (int)second_score, third, (int)third_score);
+
   // Event loop
   while (graphics_run) {
-    key = gfx_wait();
+    status = gfx_event_waiting();
 	
+	if (status) {
+	key = gfx_wait();
+	bool update = false;
 	switch(key) {
 	  case 'q': graphics_run = false; break;
 	  case '1': 
@@ -176,6 +184,7 @@ int main() {
 		first_score = solutions[first_index].get_SurfaceTemp();
 		second_score = solutions[second_index].get_SurfaceTemp();
 		third_score = solutions[third_index].get_SurfaceTemp();
+		update = true;
 	  break;
 	  case '2': break;
 	  	first_index = yearsRank[0];
@@ -184,6 +193,7 @@ int main() {
 		first_score = solutions[first_index].get_Years();
 		second_score = solutions[second_index].get_Years();
 		third_score = solutions[third_index].get_Years();
+		update = true;
 	  case '3': break;
 	  	first_index = soundsVolumeRank[0];
 		second_index = soundsVolumeRank[1];
@@ -191,6 +201,7 @@ int main() {
 		first_score = solutions[first_index].get_SoundsVolume();
 		second_score = solutions[second_index].get_SoundsVolume();
 		third_score = solutions[third_index].get_SoundsVolume();
+		update = true;
 	  case '4': break;
 	  	first_index = energyRank[0];
 		second_index = energyRank[1];
@@ -198,6 +209,7 @@ int main() {
 		first_score = (float)(solutions[first_index].get_Energy());
 		second_score = (float)(solutions[second_index].get_Energy());
 		third_score = (float)(solutions[third_index].get_Energy());
+		update = true;
 	  case '5': break;
 	  	first_index = volumeRank[0];
 		second_index = volumeRank[1];
@@ -205,6 +217,7 @@ int main() {
 		first_score = solutions[first_index].get_Volume();
 		second_score = solutions[second_index].get_Volume();
 		third_score = solutions[third_index].get_Volume();
+		update = true;
 	  case '6': break;
 	  	first_index = weightAcceptedRank[0];
 		second_index = weightAcceptedRank[1];
@@ -212,6 +225,7 @@ int main() {
 		first_score = solutions[first_index].get_WeightAccepted();
 		second_score = solutions[second_index].get_WeightAccepted();
 		third_score = solutions[third_index].get_WeightAccepted();
+		update = true;
 	  case '7': break;
 	  	first_index = winnerIndices[0];
 		second_index = winnerIndices[1];
@@ -219,12 +233,16 @@ int main() {
 		first_score = (float)scores[first_index];
 		second_score = (float)scores[second_index];
 		third_score = (float)scores[third_index];
+		update = true;
 	}
 	first = solutions[first_index].get_Type().data();
 	second = solutions[second_index].get_Type().data();
 	third = solutions[third_index].get_Type().data();
+	if (update) {
+	  draw_frame(key, xlength, ylength, first, (int)first_score, second, (int)second_score, third, (int)third_score);
+	}
+	}
 
-	draw_frame(key, xlength, ylength, first, (int)first_score, second, (int)second_score, third, (int)third_score);
   }
   
   // FINAL OUTPUT
