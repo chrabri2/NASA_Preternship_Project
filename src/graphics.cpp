@@ -36,7 +36,7 @@ void text_options( int y){
 
 }
 
-int draw_frame( int c, int x, int y, const char *first, int first_money, const char *second, int second_money, const char * third, int third_money) {
+void draw_frame( int c, int x, int y, const char *param, const char *first, int first_value, const char *second, int second_value, const char * third, int third_value) {
 	
 	gfx_clear();
 	
@@ -54,13 +54,13 @@ int draw_frame( int c, int x, int y, const char *first, int first_money, const c
 	gfx_text(25, 50, buffer);
 	gfx_text(30, 100, "Space Competition");
 
-	std::sprintf(buffer, "1. %s     score: %d",first, first_money);
+	std::sprintf(buffer, "1. %s     %s: %d",first, param, first_value);
 	gfx_text(x/2, y/4+(y/18), buffer);
 
-	std::sprintf(buffer, "2. %s     score: %d",second, second_money);
+	std::sprintf(buffer, "2. %s     %s: %d",second, param, second_value);
 	gfx_text(x/2, 2*y/4+y/18, buffer);
 
-	std::sprintf(buffer,"3. %s     score: %d",third, third_money);
+	std::sprintf(buffer,"3. %s     %s: %d",third, param, third_value);
 	gfx_text(x/2, 3*y/4+y/18, buffer);
 
 	gfx_flush();
@@ -87,7 +87,7 @@ int draw_frame( int c, int x, int y, const char *first, int first_money, const c
 		}
 	}
 */
-	return 0;
+	return;
 }
 
 
