@@ -159,6 +159,7 @@ int main() {
   const char *first = (char *)"";
   const char *second = (char *)"";
   const char *third = (char *)"";
+  const char *header = (char *)"";
   float first_score = 0.0;
   float second_score = 0.0;
   float third_score = 0.0;
@@ -166,7 +167,7 @@ int main() {
   int second_index = 0; 
   int third_index = 0;
   int status;
-  draw_frame(key, xlength, ylength, first, (int)first_score, second, (int)second_score, third, (int)third_score);
+  draw_frame(key, xlength, ylength, first, header, (int)first_score, second, (int)second_score, third, (int)third_score);
 
   // Event loop
   while (graphics_run) {
@@ -184,6 +185,7 @@ int main() {
 		first_score = solutions[first_index].get_SurfaceTemp();
 		second_score = solutions[second_index].get_SurfaceTemp();
 		third_score = solutions[third_index].get_SurfaceTemp();
+		header = (char *)"Temp (K)";
 		update = true;
 	  break;
 	  case '6': 
@@ -193,6 +195,7 @@ int main() {
 		first_score = solutions[first_index].get_Years();
 		second_score = solutions[second_index].get_Years();
 		third_score = solutions[third_index].get_Years();
+		header = (char *)"Years";
 		update = true;
 	  break;
 	  case '5': 
@@ -202,6 +205,7 @@ int main() {
 		first_score = solutions[first_index].get_SoundsVolume();
 		second_score = solutions[second_index].get_SoundsVolume();
 		third_score = solutions[third_index].get_SoundsVolume();
+		header = (char *)"Volume (dB)";
 		update = true;
 	  break;
 	  case '4': 
@@ -211,6 +215,7 @@ int main() {
 		first_score = (float)(solutions[first_index].get_Energy());
 		second_score = (float)(solutions[second_index].get_Energy());
 		third_score = (float)(solutions[third_index].get_Energy());
+		header = (char *)"Energy (kJ)";
 		update = true;
 	  break;
 	  case '3': 
@@ -220,6 +225,7 @@ int main() {
 		first_score = solutions[first_index].get_Volume();
 		second_score = solutions[second_index].get_Volume();
 		third_score = solutions[third_index].get_Volume();
+		header = (char *)"Volume (L)";
 		update = true;
 	  break;
 	  case '2': 
@@ -229,6 +235,7 @@ int main() {
 		first_score = solutions[first_index].get_WeightAccepted();
 		second_score = solutions[second_index].get_WeightAccepted();
 		third_score = solutions[third_index].get_WeightAccepted();
+		header = (char *)"Weight (kg)";
 		update = true;
 	  break;
 	  case '1': 
@@ -238,6 +245,7 @@ int main() {
 		first_score = (float)scores[first_index];
 		second_score = (float)scores[second_index];
 		third_score = (float)scores[third_index];
+		header = (char *)"Score";
 		update = true;
 	  break;
 	}
@@ -245,7 +253,7 @@ int main() {
 	second = solutions[second_index].get_Type().data();
 	third = solutions[third_index].get_Type().data();
 	if (update) {
-	  draw_frame(key, xlength, ylength, first, (int)first_score, second, (int)second_score, third, (int)third_score);
+	  draw_frame(key, xlength, ylength, header, first, (int)first_score, second, (int)second_score, third, (int)third_score);
 	}
 	}
 
