@@ -177,7 +177,7 @@ int main() {
 	bool update = false;
 	switch(key) {
 	  case 'q': graphics_run = false; break;
-	  case '1': 
+	  case '7': 
 	  	first_index = surfaceTempRank[0];
 		second_index = surfaceTempRank[1];
 		third_index = surfaceTempRank[2];
@@ -186,7 +186,7 @@ int main() {
 		third_score = solutions[third_index].get_SurfaceTemp();
 		update = true;
 	  break;
-	  case '2': 
+	  case '6': 
 	  	first_index = yearsRank[0];
 		second_index = yearsRank[1];
 		third_index = yearsRank[2];
@@ -195,7 +195,7 @@ int main() {
 		third_score = solutions[third_index].get_Years();
 		update = true;
 	  break;
-	  case '3': 
+	  case '5': 
 	  	first_index = soundsVolumeRank[0];
 		second_index = soundsVolumeRank[1];
 		third_index = soundsVolumeRank[2];
@@ -213,7 +213,7 @@ int main() {
 		third_score = (float)(solutions[third_index].get_Energy());
 		update = true;
 	  break;
-	  case '5': 
+	  case '3': 
 	  	first_index = volumeRank[0];
 		second_index = volumeRank[1];
 		third_index = volumeRank[2];
@@ -222,7 +222,7 @@ int main() {
 		third_score = solutions[third_index].get_Volume();
 		update = true;
 	  break;
-	  case '6': 
+	  case '2': 
 	  	first_index = weightAcceptedRank[0];
 		second_index = weightAcceptedRank[1];
 		third_index = weightAcceptedRank[2];
@@ -231,7 +231,7 @@ int main() {
 		third_score = solutions[third_index].get_WeightAccepted();
 		update = true;
 	  break;
-	  case '7': 
+	  case '1': 
 	  	first_index = winnerIndices[0];
 		second_index = winnerIndices[1];
 		third_index = winnerIndices[2];

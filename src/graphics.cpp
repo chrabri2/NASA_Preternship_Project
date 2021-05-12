@@ -38,20 +38,20 @@ void text_options( int y){
 
 int draw_frame( int c, int x, int y, const char *first, int first_money, const char *second, int second_money, const char * third, int third_money) {
 	
+	gfx_clear_color(10, 10, 300);
 	gfx_clear();
 	
-	gfx_clear_color(10, 10, 300);
 	gfx_color(100,100,100);
 
+	gfx_changefont((char *)"12x24");
 	draw_boxes(x,y);
 	draw_button(c, x, y);
 	text_options( y);
 	
-	gfx_changefont((char *)"12x24");
 	char buffer[BUFSIZ];
 	
 	std::sprintf(buffer, "NASA Waste Handling in\n Space Competition");
-	gfx_text(25, 50, buffer)
+	gfx_text(25, 50, buffer);
 
 	std::sprintf(buffer, "1. %s     score: %d",first, first_money);
 	gfx_text(x/2, y/4+(y/18), buffer);
