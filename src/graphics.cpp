@@ -7,7 +7,7 @@
 
 void draw_button(int i, int x, int y){
 	gfx_color(100,0,0);
-	gfx_rectangle(10, (i+10)*y/18+15, x/5, y/19);
+	gfx_rectangle(10, (i+10-'1')*y/18+15, x/5, y/19);
 	gfx_color(10,10,10);
 }
 
