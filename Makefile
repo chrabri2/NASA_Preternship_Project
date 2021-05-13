@@ -23,7 +23,6 @@ BIN  := bin
 # file groups
 PQS :=  $(INC)/Node.h $(INC)/DLList.h $(INC)/MaxPriorityQueue.h $(INC)/MinPriorityQueue.h
 CLASSES := $(INC)/Player.h $(INC)/Member.h $(INC)/Owner.h $(INC)/CSVReader.h
-GRAPHICS := $(INC)/graphics.h $(SRC)/graphics.cpp
 
 # testclass script
 testclass: $(TEST)/testclass.cpp $(CLASSES)
@@ -34,11 +33,8 @@ testPQs: $(TEST)/testPQs.cpp $(PQS)
 	$(PP) $(CXXFLAGS) -o $(EXE)/testPQs.exe $(TEST)/testPQs.cpp
 
 # Objects
-graphics.o: $(GRAPHICS)
-	$(PP) $(CXXFLAGS) -c -o $(OBJ)/graphics.o $(SRC)/graphics.cpp
-
-simulator: simulator.o graphics.o
-	$(PP) $(CXXFLAGS) -o $(EXE)/CoECISimulator $(OBJ)/CoECISimulator.o $(OBJ)/graphics.o $(BIN)/gfx3.o -lX11
+simulator: simulator.o 	
+	$(PP) $(CXXFLAGS) -o $(EXE)/CoECISimulator $(OBJ)/CoECISimulator.o 
 
 # CoECIFinalSimulator
 simulator.o: $(SRC)/CoECISimulator.cpp $(PQS) $(CLASSES)

@@ -16,7 +16,6 @@
 #include "../inc/Player.h"
 #include "../inc/Member.h"
 #include "../inc/Owner.h"
-#include "../inc/graphics.h"
 #include <cstdio>
 #include <unistd.h>
 
@@ -64,14 +63,19 @@ int main() {
   MinPriorityQueue<float> surfaceTempPQ; 
   
   // RANKINGS with indices
-  int weightAcceptedRank[3] = {0};
-  int volumeRank[3] = {0};
-  int energyRank[3] = {0};
+
+/*
+  int weightAcceptedRank[7] = {0};
+  int volumeRank[7] = {0};
+  int energyRank[7] = {0};
   int soundsVolumeRank[3] = {0};
   int yearsRank[3] = {0};
   int surfaceTempRank[3] = {0};
+*/
+
 
   // push values for wach 
+
   for(int i = 0; i < nSolns; i++) {
     weightAcceptedPQ.push(solutions[i].get_WeightAccepted());
     volumePQ.push(solutions[i].get_Volume());
@@ -80,6 +84,7 @@ int main() {
     yearsPQ.push(solutions[i].get_Years());
     surfaceTempPQ.push(solutions[i].get_SurfaceTemp());
   }
+
   
   // CALCULATE SCORES
   // priority queues
@@ -87,27 +92,27 @@ int main() {
     for(int j = 0; j < nSolns; j++) { // solution index
       if(weightAcceptedPQ.top() == solutions[j].get_WeightAccepted()) {
         scores[j] += (3 - k);
-		weightAcceptedRank[k] = j;
+		//weightAcceptedRank[k] = j;
       }
       if(volumePQ.top() == solutions[j].get_Volume()) {
         scores[j] += (3 - k);
-		volumeRank[k] = j;
+		//volumeRank[k] = j;
       }
       if(energyPQ.top() == solutions[j].get_Energy()) {
         scores[j] += (3 - k);
-		energyRank[k] = j;
+		//energyRank[k] = j;
       }
       if(soundsVolumePQ.top() == solutions[j].get_SoundsVolume()) {
         scores[j] += (3 - k);
-		soundsVolumeRank[k] = j;
+		//soundsVolumeRank[k] = j;
       }
       if(yearsPQ.top() == solutions[j].get_Years()) {
         scores[j] += (3 - k);
-		yearsRank[k] = j;
+		//yearsRank[k] = j;
       }
       if(surfaceTempPQ.top() == solutions[j].get_SurfaceTemp()) {
         scores[j] += (3 - k);
-		surfaceTempRank[k] = j;
+		//surfaceTempRank[k] = j;
       }
     }
     weightAcceptedPQ.pop();
@@ -149,6 +154,8 @@ int main() {
   
   // Graphics output
   // pixels
+
+/*
   int xlength = 1080;
   int ylength = 720;
   char *title = (char *)"CoECISimulator";
@@ -168,8 +175,9 @@ int main() {
   int third_index = 0;
   int status;
   draw_frame(key, xlength, ylength, first, header, (int)first_score, second, (int)second_score, third, (int)third_score);
-
+*/
   // Event loop
+/*
   while (graphics_run) {
     status = gfx_event_waiting();
 	
@@ -258,7 +266,7 @@ int main() {
 	}
 
   }
-  
+*/  
   // FINAL OUTPUT
   COUT << "First Place Solution" << ENDL;
   COUT << solutions[winnerIndices[0]] << ENDL << ENDL;
