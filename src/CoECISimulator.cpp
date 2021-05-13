@@ -257,6 +257,9 @@ int main() {
 	}
 	}
 
+
+	//draw_frame(key, xlength, ylength, first, (int)first_score, second, (int)second_score, third, (int)third_score);
+
   }
   
   // FINAL OUTPUT

@@ -44,6 +44,9 @@ void text_options( int y){
 
 }
 
+
+//int draw_frame(int c,int x, int y, const char *first, int first_money, const char *second, int second_money, const char * third, int third_money){
+
 void draw_frame( int c, int x, int y, const char *param, const char *first, int first_value, const char *second, int second_value, const char * third, int third_value) {
 	
 	gfx_clear_color(10, 10, 300);
